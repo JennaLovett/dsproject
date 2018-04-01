@@ -70,81 +70,59 @@ John Barbas                 2293335803
 Frank Barnas                2292494876
 
 
-BARNBAUM, Cecilia S.
-Professor of Physics, Astronomy, and Geosciences
-B.A., Immaculate Heart College; M.S., Ph.D., University of California at Los Angeles; 1998; 2007.
+Cecilia Barnbaum            2292492645
 
-BARNETT, Hollis R.
-Professor of Art
-B.A., M.A., University of Arkansas at Little Rock; M.F.A., Memphis State University; 1985; 1995.
 
-*BARTOS, Sebastian
-Associate Professor of History
-B.A., Manhattanville College; M.A., Catholic University of America; Ph.D., City University of New York; 2011; 2016.
+Hollis Barnett              2293335838
 
-BAUER, Jeremy A.
-Assistant Professor of Psychology and Counseling
-B.A., M.A., Ph.D., University of South Florida; 2013.
 
-BAUN, Michael J.
-Professor of Political Science
-B.A., M.A., University of Georgia; Ph.D., University of Virginia; 1996; 2001.
+Sebastian Bartos            2293335947
 
-BAXTER, James T.
-Professor of Chemistry and Head of Department
-B.S., Valdosta State College; M.S., Ph.D., Georgia Institute of Technology; 1973; 1998.
 
-*BEAL-ALVAREZ, Jennifer S.
-Assistant Professor of Middle, Secondary, Reading, and Deaf Education
-B.S., M.Ed., Ed.S., Valdosta State University; Ph.D., Georgia State University; 2013.
+Jeremy Bauer                2293335440
 
-*BEJARANO, Luis G.
-Professor of Modern and Classical Languages
-B.A., Universidad del Valle, Colombia; M.A., University of Georgia; Ph.D., University of Oklahoma; 1999; 2010.
 
-BELL, Fleming L.
-Assistant Professor of Modern and Classical Languages
-B.A., Lipscomb University; M.A., Ph.D., Florida State University; 2011.
+Michael Baun                2292595082
 
-BERGSTROM, Bradley J.
-Professor of Biology
-B.S., M.S., University of Illinois; Ph.D., University of Kansas, 1986; 1997.
+  
+James Baxter                2293335801
 
-*BERNSTEIN, Alan M.
-Dean of University Libraries
-B.A., Valdosta State College; M.Ed, M.A., M.L.I.S., Ed. D., Valdosta State University; 2004; 2009.
 
-BETTS BARFIELD, Jennifer D.
-Lecturer in English
-B. A., M. A., Valdosta State University; 2008.
+Luis Bejarano               2292494942
 
-BEVERLY, H. Michael
-Lecturer in Management and Healthcare Administration and Director of the Center for Business and Economic Research
-B.B.A., M.B.A., Valdosta State University; 2015.
 
-BHAMMAR, Dharini M.
-Assistant Professor of Exercise Physiology
-M.B.B.S., Maharashtra University of Health Sciences; M.S., Ph.D., Arizona State University; 2015.
+Fleming Bell                2292595125
 
-*BIELMYER, Gretchen K.
-Associate Professor of Biology
-B. S., University of North Florida; M. S., Ph.D., Clemson University; 2008; 2012.
 
-BISSONNETTE, Meghan
-Lecturer in Art
-B.F.A., B.A., Nova Scotia College of Art and Design; M.A., Ph.D., York University; 2015.
+Bradley Bergstrom           2293335770
 
-BLACK, Andrew C.
-Instructor in Communication Arts
-B.A., University of Toledo; M.A., Bowling Green State University; PhD., University of Toledo; 2015.
 
-*BLACKMORE, Mark S.
-Professor of Biology
-B.S., Michigan State University; M.S., Auburn University; Ph.D., University of Utah; 1996; 2006.
+Alan Bernstein              2293335870
 
-*BLOCK, Mary R.
-Professor of History
-B.A., Murray State University; M.A., University of Louisville; Ph.D., University of Kentucky; 2005, 2015.
+
+Jennifer Barfield           2293335911
+
+
+Michael Beverly             2293337878
+
+
+Dharini Bhammar             2292532894
+
+
+Gretchen Bielmyer           2293335766
+
+
+Meghan Bissonnette          2292494873
+
+
+Andrew Black                2292492587
+
+
+Mark Blackmore              2292595114
+
+
+Mary Block                  2293335947
+
 
 BORZI, Mark G.
 Professor of Communication Arts and Head of Department
@@ -1649,28 +1627,22 @@ Professor of Curriculum, Leadership, and Technology
 B.S.Ed., Georgia Southwest College; M.S., Ed.D., Auburn University; 1992; 2004.
 
 *WILEY, Larry P.
-Professor of Psychology and Counseling
-B.A., Georgia Southwestern College; M.S., Ph.D., Auburn University; 1992; 2004.
+
 
 *WILFRED, Shani P.
-Professor of Sociology, Anthropology, and Criminal Justice
-B.S., Taylor University; M.A., Ph.D., Indiana University; 2005; 2014.
+
 
 WILLIAMS, Christia
-Instructor of Middle, Secondary, Reading, and Deaf Education
-B.S.Ed., Valdosta State University; M.S.Ed., Northeastern University; 2012.
+
 
 *WILLIAMS, David
-Professor of History
-B.A., M.Ed., North Georgia College; M.A., Central Michigan University; M.A., Washington College; Ph.D., Auburn University; 1988; 1997.
+
 
 *WILLIAMS, Marty L.
-Professor of English
-B.A., University of California, Berkley; M.A., California State University, Fresno; Ph.D., University of Utah; 2001; 2012.
+
 
 WINSKA, Kalina M.
-Assistant Professor of Art
-M.F.A., Eugeniusz Geppert Academy of Fine Arts in Wroclaw, Poland; M.F.A., University of Florida; 2012.
+
 
 WISHART, Helen A.
 Lecturer in English
@@ -1693,26 +1665,19 @@ Assistant Professor of Nursing
 B.A., Mercer University; M.A., Georgia Southwestern University; M.S.N., Albany State University; D.N.P., Chatham University; 2014.
 
 *WRIGHT, Diane
-Assistant Professor of Adult and Career Education
-B.A., Valdosta State University; M.S., Full Sail University; M.B.A., Valdosta State University;
-Ed.D., Nova University; 2013.
+
 
 WRIGHT, Laura B.
-Associate Professor of Library Science and Reference Librarian
-B. S., Emory University; M.S.L.S., University of North Carolina at Chapel Hill; 2008; 2013.
+
 
 XU, Zhiguang
-Professor of Computer Science
-B.S., Beijing University of Posts and Telecommunications; M.S., Ph.D., University of Central Florida; 2002; 2012.
+
 
 *YANG, Changwoo
-Associate Professor of Information Studies
-BA., University of Incheon, Korea; M.L.I.S., Ph.D., Florida State University; 2010; 2014.
+
 
 *YEHL, Robert (Sherman)
-Associate Professor of Political Science
-B.A., Indiana University; M.P.A., American University; Ph.D., University of Houston; 2011; 2016.
+
 
 YU, Kristin
-Lecturer in Music
-B.M., M.M., University of Kentucky; D.M., Florida State University; 2014.
+
