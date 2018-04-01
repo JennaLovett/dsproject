@@ -18,8 +18,8 @@ public class DoubleHashingHashTableTest {
             String line = br.readLine();                    //grab 1st line
             String num = br.readLine();
             int number = Integer.parseInt(num);   //grabs corresponding phone number
-            
-            while (line != null && num != null) {      //while file still has data
+
+            while (line != null) {      //while file still has data
                 ht.insert(line, number);
 
                 line = br.readLine();   //reads empty line and throws it away
@@ -44,6 +44,8 @@ public class DoubleHashingHashTableTest {
         char ch;
 
         do {
+            System.out.println();
+            System.out.println("Choose an operation");
             System.out.println("1. insert ");
             System.out.println("2. remove");
             System.out.println("3. get");
@@ -56,7 +58,7 @@ public class DoubleHashingHashTableTest {
             {
                 case 1 :
                     System.out.println("Enter key and value");
-                    String prof = scan.next();
+                    String prof = scan.next() + " " + scan.next();
                     int phone = scan.nextInt();
                     ht.insert(prof, phone);
                     try {
@@ -70,11 +72,11 @@ public class DoubleHashingHashTableTest {
                     break;
                 case 2 :
                     System.out.println("Enter key");
-                    ht.remove(scan.next());
+                    ht.remove(scan.next() + " " + scan.next());
                     break;
                 case 3 :
                     System.out.println("Enter key");
-                    System.out.println("Value = "+ ht.get(scan.next()));
+                    System.out.println("Value = "+ ht.get(scan.next() + " " + scan.next()));
                     break;
                 case 4 :
                     System.out.println("Empty Status " +ht.isEmpty());
@@ -93,5 +95,6 @@ public class DoubleHashingHashTableTest {
             System.out.println("\nDo you want to continue (Type y or n) \n");
             ch = scan.next().charAt(0);
         } while (ch == 'Y'|| ch == 'y');
+        ht.printHashTable();
     }
 }
