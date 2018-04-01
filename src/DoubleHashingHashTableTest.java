@@ -5,14 +5,12 @@ import java.nio.file.Paths;
 
 public class DoubleHashingHashTableTest {
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
 
         System.out.println("Professor Directory\n\n");
-        System.out.println("Enter size of hash table");
 
         //Create hashtable object
-        Scanner scan = new Scanner(System.in);
-        int size = scan.nextInt();
-        HashTable ht = new HashTable(size);
+        HashTable ht = new HashTable(100);
 
         //Create bufferedreader to read in data from file and add to table
         try {
@@ -20,18 +18,24 @@ public class DoubleHashingHashTableTest {
             String line = br.readLine();                    //grab 1st line
             String num = br.readLine();
             int number = Integer.parseInt(num);   //grabs corresponding phone number
-            while (line != null) {      //while file still has data
+            
+            while (line != null && num != null) {      //while file still has data
                 ht.insert(line, number);
+
                 line = br.readLine();   //reads empty line and throws it away
+
                 line = br.readLine();       //grab new Professor Name
                 num = br.readLine();        //grab new Professor number
+                if(num == null) {
+                    break;
+                }
                 number = Integer.parseInt(num);     //parse string num into int
             }
             br.close();    //Step 3: Close file
         } catch(IOException e) {
-            System.out.println(e.getMessage());
+            System.out.println("IO Exception:\t" + e.getMessage());
         } catch(NumberFormatException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Number Format Exception:\t" + e.getMessage());
         }
 
         System.out.println("Current Professor Directory");
@@ -66,11 +70,11 @@ public class DoubleHashingHashTableTest {
                     break;
                 case 2 :
                     System.out.println("Enter key");
-                    ht.remove( scan.next() );
+                    ht.remove(scan.next());
                     break;
                 case 3 :
                     System.out.println("Enter key");
-                    System.out.println("Value = "+ ht.get( scan.next() ));
+                    System.out.println("Value = "+ ht.get(scan.next()));
                     break;
                 case 4 :
                     System.out.println("Empty Status " +ht.isEmpty());
@@ -80,7 +84,7 @@ public class DoubleHashingHashTableTest {
                     System.out.println("Hash Table Cleared\n");
                     break;
                 case 6 :
-                    System.out.println("Size = "+ ht.getSize() );
+                    System.out.println("Size = "+ ht.getSize());
                     break;
                 default :
                     System.out.println("Wrong Entry \n ");
