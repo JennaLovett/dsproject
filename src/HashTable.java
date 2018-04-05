@@ -1,22 +1,22 @@
 public class HashTable {
-    private int ts;
+    private int maxTS;     //max table size
     private int currentSize;
     private HashEntry[] table;
     private int primeSize;
 
-    /* Constructor */
-    public HashTable(int ts) {
+    ///Constructor
+    public HashTable(int maxTS) {
         currentSize = 0;
-        this.ts = ts;
-        table = new HashEntry[this.ts];
-        for (int i = 0; i < this.ts; i++)
+        this.maxTS = maxTS;       //max table size
+        table = new HashEntry[this.maxTS];
+        for (int i = 0; i < this.maxTS; i++)
             table[i] = null;
         primeSize = getPrime();
     }
 
-    /* Function to get prime number less than table size for myhash2 function */
+    //sets prime number less than max table size (ts) for doublehash method
     public int getPrime() {
-        for (int i = ts - 1; i >= 1; i--)
+        for (int i = maxTS - 1; i >= 1; i--)
         {
             int fact = 0;
             for (int j = 2; j <= (int) Math.sqrt(i); j++)
@@ -31,7 +31,7 @@ public class HashTable {
     //empty hash table contents by setting every value to null
     public void empty() {
         currentSize = 0;
-        for (int i = 0; i < ts; i++) {
+        for (int i = 0; i < maxTS; i++) {
             table[i] = null;
         }
     }
@@ -43,14 +43,14 @@ public class HashTable {
 
         while (table[hash1] != null && !table[hash1].key.equals(key)) {
             hash1 += hash2;
-            hash1 %= ts;
+            hash1 %= maxTS;
         }
         return table[hash1].value;
     }
     // insert a value and corresponding key into table
     public void insert(String key, int value) {
         //if table is full
-        if (currentSize == ts) {
+        if (currentSize == maxTS) {
             System.out.println("Table full");
             return;
         }
@@ -59,7 +59,7 @@ public class HashTable {
         int hash2 = doublehash(key);
         while (table[hash1] != null) {
             hash1 += hash2;
-            hash1 %= ts;
+            hash1 %= maxTS;
         }
         //store key and value in table and increment size of table
         table[hash1] = new HashEntry(key, value);
@@ -74,7 +74,7 @@ public class HashTable {
         //keeps going until the key is found
         while (table[hash1] != null && !table[hash1].key.equals(key)) {
             hash1 += hash2;
-            hash1 %= ts;
+            hash1 %= maxTS;
         }
         //sets specific location to null and decrements current size of table
         table[hash1] = null;
@@ -92,18 +92,18 @@ public class HashTable {
     // myhash1 which gives a hash value for a string
     private int firsthash(String x ){
         int hashVal = x.hashCode();
-        hashVal %= ts;
+        hashVal %= maxTS;
         if (hashVal < 0) {
-            hashVal += ts;
+            hashVal += maxTS;
         }
         return hashVal;
     }
     //doublehash method for double hashing
     private int doublehash(String s) {
         int hashValue = s.hashCode();
-        hashValue %= ts;
+        hashValue %= maxTS;
         if (hashValue < 0)
-            hashValue += ts;
+            hashValue += maxTS;
         return primeSize - hashValue % primeSize;
     }
 
@@ -114,7 +114,7 @@ public class HashTable {
 
     // prints contents of hash table
     public void printHashTable() {
-        for (int i = 0; i < ts; i++) {
+        for (int i = 0; i < maxTS; i++) {
             if (table[i] != null) {
                 System.out.println(table[i].key + "\t" + table[i].value);
             }
