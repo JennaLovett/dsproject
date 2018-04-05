@@ -1,23 +1,22 @@
 public class HashTable {
-    private int TABLE_SIZE;
-    private int size;
+    private int ts;
+    private int currentSize;
     private HashEntry[] table;
     private int primeSize;
 
     /* Constructor */
-    public HashTable(int ts)
-    {
-        size = 0;
-        TABLE_SIZE = ts;
-        table = new HashEntry[TABLE_SIZE];
-        for (int i = 0; i < TABLE_SIZE; i++)
+    public HashTable(int ts) {
+        currentSize = 0;
+        this.ts = ts;
+        table = new HashEntry[this.ts];
+        for (int i = 0; i < this.ts; i++)
             table[i] = null;
         primeSize = getPrime();
     }
+
     /* Function to get prime number less than table size for myhash2 function */
-    public int getPrime()
-    {
-        for (int i = TABLE_SIZE - 1; i >= 1; i--)
+    public int getPrime() {
+        for (int i = ts - 1; i >= 1; i--)
         {
             int fact = 0;
             for (int j = 2; j <= (int) Math.sqrt(i); j++)
@@ -29,88 +28,96 @@ public class HashTable {
         /* Return a prime number */
         return 3;
     }
-    /* Function to get number of key-value pairs */
-    public int getSize()
-    {
-        return size;
-    }
-    public boolean isEmpty()
-    {
-        return size == 0;
-    }
-    /* Function to clear hash table */
-    public void makeEmpty()
-    {
-        size = 0;
-        for (int i = 0; i < TABLE_SIZE; i++)
+    //empty hash table contents by setting every value to null
+    public void empty() {
+        currentSize = 0;
+        for (int i = 0; i < ts; i++) {
             table[i] = null;
+        }
     }
-    /* Function to get value of a key */
-    public int get(String key)
-    {
-        int hash1 = myhash1( key );
-        int hash2 = myhash2( key );
 
-        while (table[hash1] != null && !table[hash1].key.equals(key))
-        {
+    //gets value of corresponding key
+    public int get(String key) {
+        int hash1 = firsthash(key);
+        int hash2 = doublehash(key);
+
+        while (table[hash1] != null && !table[hash1].key.equals(key)) {
             hash1 += hash2;
-            hash1 %= TABLE_SIZE;
+            hash1 %= ts;
         }
         return table[hash1].value;
     }
-    /* Function to insert a key value pair */
-    public void insert(String key, int value)
-    {
-        if (size == TABLE_SIZE)
-        {
+    // insert a value and corresponding key into table
+    public void insert(String key, int value) {
+        //if table is full
+        if (currentSize == ts) {
             System.out.println("Table full");
             return;
         }
-        int hash1 = myhash1( key );
-        int hash2 = myhash2( key );
-        while (table[hash1] != null)
-        {
+        //else hash to available slot
+        int hash1 = firsthash(key);
+        int hash2 = doublehash(key);
+        while (table[hash1] != null) {
             hash1 += hash2;
-            hash1 %= TABLE_SIZE;
+            hash1 %= ts;
         }
+        //store key and value in table and increment size of table
         table[hash1] = new HashEntry(key, value);
-        size++;
+        currentSize++;
     }
-    /* Function to remove a key */
-    public void remove(String key)
-    {
-        int hash1 = myhash1( key );
-        int hash2 = myhash2( key );
-        while (table[hash1] != null && !table[hash1].key.equals(key))
-        {
+
+    // to remove a a value and corresponding key
+    public void remove(String key) {
+        int hash1 = firsthash(key);
+        int hash2 = doublehash(key);
+
+        //keeps going until the key is found
+        while (table[hash1] != null && !table[hash1].key.equals(key)) {
             hash1 += hash2;
-            hash1 %= TABLE_SIZE;
+            hash1 %= ts;
         }
+        //sets specific location to null and decrements current size of table
         table[hash1] = null;
-        size--;
+        currentSize--;
     }
-    /* Function myhash which gives a hash value for a given string */
-    private int myhash1(String x )
-    {
-        int hashVal = x.hashCode( );
-        hashVal %= TABLE_SIZE;
-        if (hashVal < 0)
-            hashVal += TABLE_SIZE;
+
+    //checks if the table is empty or not
+    public boolean isEmpty() {
+        if(currentSize != 0) {
+            return false;
+        }
+        return true;
+    }
+
+    // myhash1 which gives a hash value for a string
+    private int firsthash(String x ){
+        int hashVal = x.hashCode();
+        hashVal %= ts;
+        if (hashVal < 0) {
+            hashVal += ts;
+        }
         return hashVal;
     }
-    /* Function myhash function for double hashing */
-    private int myhash2(String x )
-    {
-        int hashVal = x.hashCode( );
-        hashVal %= TABLE_SIZE;
-        if (hashVal < 0)
-            hashVal += TABLE_SIZE;
-        return primeSize - hashVal % primeSize;
+    //doublehash method for double hashing
+    private int doublehash(String s) {
+        int hashValue = s.hashCode();
+        hashValue %= ts;
+        if (hashValue < 0)
+            hashValue += ts;
+        return primeSize - hashValue % primeSize;
     }
-    /* Function to print hash table */
+
+    //gets current size of table, which does not include null values
+    public int getSize() {
+        return currentSize;
+    }
+
+    // prints contents of hash table
     public void printHashTable() {
-        for (int i = 0; i < TABLE_SIZE; i++)
-            if (table[i] != null)
-                System.out.println(table[i].key +" "+table[i].value);
+        for (int i = 0; i < ts; i++) {
+            if (table[i] != null) {
+                System.out.println(table[i].key + "\t" + table[i].value);
+            }
+        }
     }
 }

@@ -45,15 +45,16 @@ public class DoubleHashingHashTableTest {
 
         do {
             System.out.println();
-            System.out.println("Choose an operation");
-            System.out.println("1. insert ");
-            System.out.println("2. remove");
-            System.out.println("3. get");
-            System.out.println("4. check empty");
-            System.out.println("5. clear");
-            System.out.println("6. size");
+            System.out.println("Choose an option (1-6)");
+            System.out.println("1. Insert into Table");
+            System.out.println("2. Remove from Table");
+            System.out.println("3. Get Key and Value Pair");
+            System.out.println("4. Check if Table is Empty");
+            System.out.println("5. Clear all Contents of Table");
+            System.out.println("6. Current Size of Table");
 
             int choice = scan.nextInt();
+
             switch (choice)
             {
                 case 1 :
@@ -71,30 +72,32 @@ public class DoubleHashingHashTableTest {
                     }
                     break;
                 case 2 :
-                    System.out.println("Enter key");
+                    System.out.println("Enter key ");
                     ht.remove(scan.next() + " " + scan.next());
                     break;
                 case 3 :
-                    System.out.println("Enter key");
-                    System.out.println("Value = "+ ht.get(scan.next() + " " + scan.next()));
+                    System.out.println("Enter key ");
+                    System.out.println("Value is "+ ht.get(scan.next() + " " + scan.next()));
                     break;
                 case 4 :
-                    System.out.println("Empty Status " +ht.isEmpty());
+                    System.out.println("Is Table Empty? " +ht.isEmpty());
                     break;
                 case 5 :
-                    ht.makeEmpty();
+                    ht.empty();
                     System.out.println("Hash Table Cleared\n");
                     break;
                 case 6 :
-                    System.out.println("Size = "+ ht.getSize());
+                    System.out.println("Current Size is "+ ht.getSize());
                     break;
                 default :
                     System.out.println("Wrong Entry \n ");
                     break;
             }
+            System.out.println();
+            ht.printHashTable();
             System.out.println("\nDo you want to continue (Type y or n) \n");
             ch = scan.next().charAt(0);
-        } while (ch == 'Y'|| ch == 'y');
+        } while (ch != 'N'|| ch != 'n');
         ht.printHashTable();
     }
 }
