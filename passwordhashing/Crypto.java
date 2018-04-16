@@ -8,6 +8,7 @@ public class Crypto {
 
 
     public static void main(String[] args) {
+        //just testing to make sure everything is performing correctly
         for(int i = 0; i < 10; i++) {
             System.out.println(generateSalt());
         }
@@ -21,6 +22,7 @@ public class Crypto {
         for(int i = 0; i < SALTSIZE; i++) {
             tempNumber = generateRandomNumber();
             //if number is even, generate a char value
+            //if number is false, generate an int value
             if(tempNumber % 2 == 0) {
                 saltValue += generateChar();
             } else {
@@ -39,6 +41,7 @@ public class Crypto {
         return num;
     }
 
+    //function used to generate a random character A-Z (does not include lowercase letters)
     static String generateChar() {
         Random r = new Random();
         char c = (char)(r.nextInt((90 - 65) + 1) + 65);
@@ -46,6 +49,7 @@ public class Crypto {
         return Character.toString(c);
     }
 
+    //function used to generate a random number between 0 and 9
     static String generateNumber() {
         Random rand = new Random();
         int num = rand.nextInt(10);
