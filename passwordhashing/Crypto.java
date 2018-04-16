@@ -1,6 +1,7 @@
 //program that randomly generates a salt value consisting of 16 different elements
 
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Crypto {
 
@@ -51,8 +52,7 @@ public class Crypto {
 
     //function used to generate a random number between 0 and 9
     static String generateNumber() {
-        Random rand = new Random();
-        int num = rand.nextInt(10);
+        int num = ThreadLocalRandom.current().nextInt(0, 9 + 1);
         String number = String.valueOf(num);
 
         return number;
