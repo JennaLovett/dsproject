@@ -1,5 +1,5 @@
-//http://www.baeldung.com/java-hashcode
-
+//http://www.baeldung.com/java-hashcode/
+//https://beginnersbook.com/2013/12/hashmap-in-java-with-example/
 import java.util.*;
 
 public class Hash {
