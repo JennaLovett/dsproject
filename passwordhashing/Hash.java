@@ -1,3 +1,5 @@
+//http://www.baeldung.com/java-hashcode
+
 import java.util.*;
 
 public class Hash {
@@ -6,12 +8,12 @@ public class Hash {
    private static String password;
    private static String salt;
    private static int hashcode;
-   
+   private static Map<String, String> map = new HashMap<>();
    
    private static ArrayList<String> salts = new ArrayList<String>();
    
    public static void main(String[] args) {
-   
+      
       System.out.print("Enter Username:\t");
       Scanner scan = new Scanner(System.in);
       username = scan.next();
@@ -29,12 +31,15 @@ public class Hash {
       password += salt;
       System.out.println("Salted Password:\t" + password);
       
+      hashSaltedPassword(password);
+      
    }
    
    
-   public void hashSaltedPassword(String password) {
+   public static void hashSaltedPassword(String password) {
       
-      
+      int hash = password.hashCode();
+      System.out.println(hash);      
       
    }
    
