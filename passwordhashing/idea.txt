@@ -1,0 +1,34 @@
+/********************************
+* WARNING
+* THIS PROBABLY MAKES NO SENSE
+* oh well
+********************************/
+
+create account simulation
+
+2 hash maps
+1. maps username with salt value
+2. maps username with hashed salted password
+
+each user has individual salt. combined with password.
+input: username and password
+dont store password at all
+
+salt values stored in predefined array
+each time an account is created or password is changed, pull
+salt value from this array
+write these salts to a file and everytime the program is ran,
+populate the array with these salt values
+
+take hashCode() of password and combine it in a way that isnt random with the 
+corresponding salt value
+
+password could be a certain length so it returns a certain length
+hashCode() 
+
+functionality: change salt value when change password
+
+options at runtime:
+	1. Create Account
+	2. Change Password
+	3. Delete Account
