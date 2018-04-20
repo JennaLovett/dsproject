@@ -12,8 +12,10 @@ public class Hash {
     private static String password;
     private static String salt;
     private static int hashcode;
-    private static Map<String, String> map = new HashMap<>();
+    private static Map<String, String> usernameAndSalt = new HashMap<>();
+    private static Map<String, String> usernameAndHashedPassword = new HashMap<>();
     private static String[] salts = new String[100];
+    private static int numOfAccounts = 0;
 
 
     public static void main(String[] args) {
@@ -41,25 +43,55 @@ public class Hash {
         Scanner scan = new Scanner(System.in);
 
 
-
-
-
-
-
         do {
+            if(isFull()) {
+                System.out.println("Database is full.");
+                return;
+            }
             System.out.println("Choose from the following options.");
             System.out.println("1. Create Account");
             System.out.println("2. Change Password");
-            System.out.println("3. Delete Account");
+            System.out.println("3. Login");
+            System.out.println("4. Delete Account");
 
             choice = scan.nextInt();
 
             switch (choice) {
+
                 case 1:
                     System.out.print("Enter Username:\t");
                     username = scan.next();
                     System.out.print("\nEnter Password:\t");
                     password = scan.next();
+                    password += salts[numOfAccounts];
+                    usernameAndSalt.put(username, salts[numOfAccounts]);        //storing username and corresponding salt value in a map
+                    usernameAndHashedPassword.put(username, password);          //storing username and corresponding hashed/salted password
+                    numOfAccounts++;
+
+                case 2:
+                    System.out.print("Enter Username:\t");
+                    username = scan.next();
+                    System.out.print("\nEnter Old Password:\t");
+                    password = scan.next();
+                    salt = usernameAndSalt.get(username);
+                    password += salt;
+                    if(password == usernameAndHashedPassword.get(username)) {
+                        usernameAndSalt.remove(username, salt);
+                        usernameAndHashedPassword.remove(username, password);
+                        System.out.print("\nEnter New Password:\t");
+                        password = scan.next();
+                        Crypto c = new Crypto();
+                        salt = c.generateSalt();
+                        password += salt;
+                        usernameAndSalt.put(username, salts[numOfAccounts]);
+                        usernameAndHashedPassword.put(username, password);
+                    }
+
+                case 3:
+                    System.out.println();
+
+                case 4:
+                    System.out.println();
             }
             System.out.println("Do you wish to continue?");
             answer = scan.next();
@@ -67,13 +99,6 @@ public class Hash {
         } while(ch == 'y' || ch == 'Y');
 
 
-
-
-
-        password += salt;
-        System.out.println("Salted Password:\t" + password);
-
-        hashSaltedPassword(password);
 
     }
 
@@ -85,14 +110,22 @@ public class Hash {
 
         }
 
-        public static void fillSalts() {
-            Crypto c = new Crypto();
-            for(int i = 0; i < salts.length; i++) {
-                salt = c.generateSalt();
-                salts[i] = salt;
-            }
+    public static void fillSalts() {
+        Crypto c = new Crypto();
+        for(int i = 0; i < salts.length; i++) {
+            salt = c.generateSalt();
+            salts[i] = salt;
         }
-
     }
+
+    public static boolean isFull() {
+        if(usernameAndSalt.size() == 100) {
+            return true;
+        }
+        return false;
+    }
+
+    
+}
 
 
