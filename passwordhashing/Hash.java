@@ -67,6 +67,7 @@ public class Hash {
                     usernameAndSalt.put(username, salts[numOfAccounts]);        //storing username and corresponding salt value in a map
                     usernameAndHashedPassword.put(username, password);          //storing username and corresponding hashed/salted password
                     numOfAccounts++;
+                    break;
 
                 case 2:
                     System.out.print("Enter Username:\t");
@@ -75,7 +76,7 @@ public class Hash {
                     password = scan.next();
                     salt = usernameAndSalt.get(username);
                     password += salt;
-                    if(password == usernameAndHashedPassword.get(username)) {
+                    if(password.equals(usernameAndHashedPassword.get(username))) {
                         usernameAndSalt.remove(username, salt);
                         usernameAndHashedPassword.remove(username, password);
                         System.out.print("\nEnter New Password:\t");
@@ -86,17 +87,21 @@ public class Hash {
                         usernameAndSalt.put(username, salts[numOfAccounts]);
                         usernameAndHashedPassword.put(username, password);
                     }
+                    break;
 
                 case 3:
                     System.out.println();
-
+                    break;
                 case 4:
                     System.out.println();
+                    break;
             }
-            System.out.println("Do you wish to continue?");
+            System.out.println("\nDo you wish to continue?");
             answer = scan.next();
             ch = answer.charAt(0);
         } while(ch == 'y' || ch == 'Y');
+
+        System.out.println("\nLogged out.");
 
 
 
@@ -125,7 +130,7 @@ public class Hash {
         return false;
     }
 
-    
+
 }
 
 
