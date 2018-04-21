@@ -92,7 +92,7 @@ public class Hash {
                         Crypto c = new Crypto();
                         salt = c.generateSalt();
                         password += salt;
-                        usernameAndSalt.put(username, salts[numOfAccounts]);
+                        usernameAndSalt.put(username, salt);
                         usernameAndHashedPassword.put(username, password);
                     }
                     break;
@@ -112,10 +112,23 @@ public class Hash {
                     }
                     break;
                 case 4:
-                    System.out.println();
+                    System.out.println("DELETE ACCOUNT");
+                    System.out.print("\nEnter Username:\t");
+                    username = scan.next();
+                    System.out.print("\nEnter Password:\t");
+                    password = scan.next();
+                    salt = usernameAndSalt.get(username);
+                    password += salt;
+                    if(usernameAndSalt.containsKey(username) && usernameAndHashedPassword.containsValue(password)) {
+                        usernameAndSalt.remove(username, salt);
+                        usernameAndHashedPassword.remove(username, password);
+                        System.out.print("\nAccount Deleted.");
+                    } else {
+                        System.out.print("\nUsername or password not recognized.");
+                    }
                     break;
             }
-            System.out.println("\nDo you wish to continue?");
+            System.out.println("\n\nDo you wish to continue?");
             answer = scan.next();
             ch = answer.charAt(0);
         } while(ch == 'y' || ch == 'Y');
