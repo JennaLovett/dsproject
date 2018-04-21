@@ -1,5 +1,6 @@
 //http://www.baeldung.com/java-hashcode/
 //https://beginnersbook.com/2013/12/hashmap-in-java-with-example/
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -59,6 +60,7 @@ public class Hash {
             switch (choice) {
 
                 case 1:
+                    System.out.println("CREATE ACCOUNT");
                     System.out.print("Enter Username:\t");
                     username = scan.next();
                     System.out.print("\nEnter Password:\t");
@@ -70,8 +72,14 @@ public class Hash {
                     break;
 
                 case 2:
+                    System.out.println("CHANGE PASSWORD");
                     System.out.print("Enter Username:\t");
                     username = scan.next();
+                    if(!usernameAndSalt.containsKey(username)) {
+                        System.out.print("\nSorry, this username is not recognized.");
+                        System.out.print("\nTry creating an account.");
+                        return;
+                    }
                     System.out.print("\nEnter Old Password:\t");
                     password = scan.next();
                     salt = usernameAndSalt.get(username);
@@ -84,19 +92,44 @@ public class Hash {
                         Crypto c = new Crypto();
                         salt = c.generateSalt();
                         password += salt;
-                        usernameAndSalt.put(username, salts[numOfAccounts]);
+                        usernameAndSalt.put(username, salt);
                         usernameAndHashedPassword.put(username, password);
                     }
                     break;
 
                 case 3:
-                    System.out.println();
+                    System.out.println("LOGIN");
+                    System.out.print("Enter Username:\t");
+                    username = scan.next();
+                    System.out.print("\nEnter Password:\t");
+                    password = scan.next();
+                    salt = usernameAndSalt.get(username);
+                    password += salt;
+                    if(password.equals(usernameAndHashedPassword.get(username))) {
+                        System.out.print("Welcome, " + username +". You are logged in.");
+                    } else {
+                        System.out.print("\nUsername or password not recognized.");
+                    }
                     break;
                 case 4:
-                    System.out.println();
+                    System.out.println("DELETE ACCOUNT");
+                    System.out.print("\nEnter Username:\t");
+                    username = scan.next();
+                    System.out.print("\nEnter Password:\t");
+                    password = scan.next();
+                    salt = usernameAndSalt.get(username);
+                    password += salt;
+                    if(usernameAndSalt.containsKey(username) && usernameAndHashedPassword.containsValue(password)) {
+                        usernameAndSalt.remove(username, salt);
+                        usernameAndHashedPassword.remove(username, password);
+                        System.out.print("\nAccount Deleted.");
+                        numOfAccounts--;
+                    } else {
+                        System.out.print("\nUsername or password not recognized.");
+                    }
                     break;
             }
-            System.out.println("\nDo you wish to continue?");
+            System.out.println("\n\nDo you wish to continue?");
             answer = scan.next();
             ch = answer.charAt(0);
         } while(ch == 'y' || ch == 'Y');
