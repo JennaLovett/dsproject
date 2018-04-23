@@ -13,8 +13,8 @@ public class Hash {
     private static String password;
     private static String salt;
     private static int hashcode;
-    private static Map<String, String> usernameAndSalt = new HashMap<>();
-    private static Map<String, String> usernameAndHashedPassword = new HashMap<>();
+    private static Hashtable<String, String> usernameAndSalt = new Hashtable<>();
+    private static Hashtable<String, String> usernameAndHashedPassword = new Hashtable<>();
     private static String[] salts = new String[100];
     private static int numOfAccounts = 0;
 
